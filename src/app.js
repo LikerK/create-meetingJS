@@ -15,7 +15,7 @@ export default async () => {
     messages: {},
   };
 
-  const keyboard = new Keyboard().text("Создать конференцию");
+  const keyboard = new Keyboard().text("Создать конференцию").resized();
 
   const deleteMessages = async (chatId, ctx) => {
     if (state.messages[chatId]) {
