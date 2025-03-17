@@ -54,7 +54,6 @@ export default async () => {
     currentDate.setSeconds(currentDate.getSeconds() + token.expires_in);
     state.headerConfig = token.headerConfig;
     state.expires_in = currentDate;
-    console.log(state);
   };
 
   const getMeetingMessage = (data) => {
@@ -98,8 +97,6 @@ export default async () => {
       await deleteMessages(ctx.chat.id, ctx);
       if (state.lastMeetingId) {
         const data = await getMeeting(state.lastMeetingId, state.headerConfig);
-        console.log(data);
-        console.log(data.status);
         if (data.status === "started") {
           await handleMessage("Эта конеференция на данный момент используется!", ctx, data);
           return;
